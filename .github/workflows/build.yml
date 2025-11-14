@@ -644,10 +644,13 @@ jobs:
   plugin_qa_without_node_alpine:
     runs-on: github-ubuntu-latest-m
     name: QA without Node on Alpine SQ:LATEST_RELEASE
-    needs: [setup, build]
+    needs: [setup, build, docker_hub_auth]
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork == false
     container:
-      image: public.ecr.aws/docker/library/bash@sha256:8b59a400afbf7db0c04c0664f91ef3db8e19dbd0a56e46b9d52342505c61628c
+      image: bash:5-alpine3.22
+      credentials:
+        username: ${{ needs.docker_hub_auth.outputs.username }}
+        password: ${{ needs.docker_hub_auth.outputs.token }}
     permissions: *read_permissions
     steps:
       - *checkout
@@ -743,11 +746,14 @@ jobs:
   plugin_qa_fast_without_node_alpine:
     runs-on: github-ubuntu-latest-m
     name: Fast QA without Node on Alpine SQ:LATEST_RELEASE
-    needs: [setup, build]
+    needs: [setup, build, docker_hub_auth]
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork == false
     permissions: *read_permissions
     container:
-      image: public.ecr.aws/docker/library/bash@sha256:8b59a400afbf7db0c04c0664f91ef3db8e19dbd0a56e46b9d52342505c61628c
+      image: bash:5-alpine3.22
+      credentials:
+        username: ${{ needs.docker_hub_auth.outputs.username }}
+        password: ${{ needs.docker_hub_auth.outputs.token }}
     steps:
       - *checkout
       - *mise_with_java
