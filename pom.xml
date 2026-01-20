@@ -89,6 +89,7 @@
     <doclint>none</doclint>
 
     <!-- sonar analysis -->
+    <sonar.organization>docsenterprise</sonar.organization>
     <sonar.sources>packages/</sonar.sources>
     <sonar.exclusions>packages/**/*.test.ts,packages/**/*.fixture.*,packages/**/fixtures/**/*</sonar.exclusions>
     <sonar.tests>packages/</sonar.tests>
