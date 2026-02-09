@@ -16,6 +16,7 @@
  */
 import esbuild from 'esbuild';
 import textReplace from 'esbuild-plugin-text-replace';
+import textReplace from 'esbuild-plugin-text-replace';
 import { copy } from 'esbuild-plugin-copy';
 import { readFileSync } from 'node:fs';
 
