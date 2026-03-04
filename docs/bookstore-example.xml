@@ -12,4 +12,8 @@
             <title lang="en">Solaris</title>
             <price currency="PLN">49.95</price>
         </book>
-</bookstore>
+        <book>
+            <title lang="en">Healing code</title>
+            <price currency="EUR">50.0</price>
+        </book>
+    </bookstore>
